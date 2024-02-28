@@ -2,6 +2,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --primary-color: #6b4bbc;
+  --gray-200: #f3f4f6;
+  --gray-300: #e5e7eb;
+  --gray-500: #9ca3af;
+  --gray-700: #4b5563;
+  --white: #fff;
+  --black: #000;
+}
 
 body {
   margin: 0;

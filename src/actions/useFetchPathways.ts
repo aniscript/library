@@ -23,7 +23,7 @@ const useFetchPathways = () => {
 
   useEffect(() => {
     fetchData();
-  }, []); // empty dependency array ensures effect runs only once after initial render
+  }, []);
 
   const refetch = () => {
     setIsLoading(true);

@@ -8,11 +8,17 @@ import "./Pathway.css";
 const Pathway = ({ pathway }: { pathway: IPathway }) => {
   return (
     <div className="pathway-card">
-      <img
-        src={pathway.image}
-        alt={pathway.title}
-        className="pathway-card__image"
-      />
+      <div className="pathway-card__image-wrapper">
+        <img
+          src={pathway.image}
+          alt={pathway.title}
+          className="pathway-card__image"
+        />
+        {pathway.has_summative_assessment && (
+          <span>Includes Summative Assessment </span>
+        )}
+      </div>
+
       <div className="pathway-card__content">
         <div className="pathway-card__info">
           <img

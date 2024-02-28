@@ -19,7 +19,7 @@ const SortDropdown = ({
     <>
       <label htmlFor="sort">Sort by:</label>
       <select id="sort" value={sortBy} onChange={handleSortChange}>
-        <option value="">No Sorting</option>
+        <option value="">None</option>
         <option value="title">Title</option>
         <option value="duration">Duration</option>
       </select>

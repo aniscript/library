@@ -1,0 +1,26 @@
+.pathways {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .pathways {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pathways {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pathways {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

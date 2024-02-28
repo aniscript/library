@@ -1,24 +1,14 @@
-import useFetchPathways from "../actions/useFetchPathways";
+import { IPathway } from "../interfaces/pathway";
 import Pathway from "./Pathway";
 
 import "./Pathways.css";
 
-const Pathways = () => {
-  const { isLoading, data, isError } = useFetchPathways();
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  if (isError) {
-    return <p>There was an error loading the data.</p>;
-  }
-
+const Pathways = ({ pathways }: { pathways: IPathway[] }) => {
   return (
     <section className="pathways">
-      {data.length ? (
-        data.map((pathway) => <Pathway pathway={pathway} />)
-      ) : (
-        <p>No pathways found</p>
-      )}
+      {pathways.map((pathway) => (
+        <Pathway pathway={pathway} />
+      ))}
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { IPathway } from "../interfaces/pathway";
 import BookIcon from "../assets/icons/book.svg";
 import RightArrowIcon from "../assets/icons/right-arrow.svg";
+import ClockIcon from "../assets/icons/clock-icon.svg";
 
 import "./Pathway.css";
 
@@ -20,6 +21,11 @@ const Pathway = ({ pathway }: { pathway: IPathway }) => {
             className="pathway-card__book_icon"
           />
           <h5>{pathway.type}</h5>
+          <img
+            src={ClockIcon}
+            alt="Clock icon"
+            className="pathway-card__book_icon"
+          />
           <h5>{pathway.duration}</h5>
         </div>
         <h2 className="pathway-card__title">{pathway.title}</h2>

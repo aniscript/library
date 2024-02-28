@@ -1,5 +1,5 @@
 .pathway-card {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0px 16px 8px -16px rgba(132, 132, 132, 0.502);
   display: flex;
@@ -50,7 +50,6 @@
   color: var(--primary-color);
   font-weight: 700;
   font-size: 1rem;
-  color: #663c97;
   text-decoration: none;
   display: flex;
   align-items: center;

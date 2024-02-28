@@ -10,6 +10,7 @@
   --gray-700: #4b5563;
   --white: #fff;
   --black: #000;
+  --red-500: #ef4444;
 }
 
 body {
@@ -20,4 +21,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(245, 245, 248);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }

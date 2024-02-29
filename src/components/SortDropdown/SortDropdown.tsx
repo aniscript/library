@@ -5,20 +5,20 @@ import DownArrowIcon from "../../assets/icons/down-arrow.svg";
 interface SortDropdownProps {
   sortBy: string;
   sortOrder: string;
-  handleSortChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleSort: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   toggleSortOrder: () => void;
 }
 
 const SortDropdown = ({
   sortBy,
   sortOrder,
-  handleSortChange,
+  handleSort,
   toggleSortOrder,
 }: SortDropdownProps) => {
   return (
     <>
       <label htmlFor="sort">Sort by:</label>
-      <select id="sort" value={sortBy} onChange={handleSortChange}>
+      <select id="sort" value={sortBy} onChange={handleSort}>
         <option value="">None</option>
         <option value="title">Title</option>
         <option value="duration">Duration</option>

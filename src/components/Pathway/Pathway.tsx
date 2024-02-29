@@ -7,7 +7,7 @@ import "./Pathway.css";
 
 const Pathway = ({ pathway }: { pathway: IPathway }) => {
   return (
-    <div className="pathway-card">
+    <article className="pathway-card">
       <div className="pathway-card__image-wrapper">
         <img
           src={pathway.image}
@@ -45,7 +45,7 @@ const Pathway = ({ pathway }: { pathway: IPathway }) => {
           />
         </a>
       </div>
-    </div>
+    </article>
   );
 };
 

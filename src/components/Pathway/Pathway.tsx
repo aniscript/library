@@ -15,7 +15,7 @@ const Pathway = ({ pathway }: { pathway: IPathway }) => {
           className="pathway-card__image"
         />
         {pathway.has_summative_assessment && (
-          <span>Includes Summative Assessment </span>
+          <span>Includes Summative Assessment</span>
         )}
       </div>
 

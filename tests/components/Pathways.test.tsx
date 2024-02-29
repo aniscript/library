@@ -6,7 +6,7 @@ import { IPathway } from "../../src/interfaces/pathway";
 describe("Pathways", () => {
   it("should render no pathways found when the pathways array is empty.", () => {
     render(<Pathways pathways={[]} />);
-    expect(screen.queryByText(/no pathways found/i)).toBeInTheDocument();
+    expect(screen.getByText(/no pathways found/i)).toBeInTheDocument();
   });
 
   it("should render a list of pathways.", () => {

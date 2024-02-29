@@ -100,19 +100,21 @@ const HomePage = () => {
             Try again
           </button>
         </div>
-      ) : data && !isLoading && !isError && filteredPathways.length > 0 ? (
-        <>
-          <Pathways pathways={filteredPathways.slice(startIndex, endIndex)} />
-          {totalPages > 1 && (
-            <Pagination
-              totalPages={totalPages}
-              currentPage={currentPage}
-              handlePageChange={handlePageChange}
-            />
-          )}
-        </>
       ) : (
-        <p className="message">No pathways found</p>
+        data &&
+        !isLoading &&
+        !isError && (
+          <>
+            <Pathways pathways={filteredPathways.slice(startIndex, endIndex)} />
+            {totalPages > 1 && (
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                handlePageChange={handlePageChange}
+              />
+            )}
+          </>
+        )
       )}
     </Layout>
   );

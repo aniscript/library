@@ -44,15 +44,3 @@
   display: flex;
   align-items: space-between;
 }
-
-.search-section {
-  display: flex;
-  align-items: center;
-}
-
-.search-input {
-  padding: 10px;
-  border: 1px solid var(--gray-300);
-  border-radius: 5px;
-  margin-right: 10px;
-}

@@ -8,6 +8,7 @@ import Layout from "../layout/Layout";
 import "./HomePage.css";
 import "../components/Skeleton/SkeletonPathway.css";
 import SortDropdown from "../components/SortDropdown/SortDropdown";
+import Search from "../components/Search/Search";
 
 const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
@@ -47,13 +48,13 @@ const HomePage = () => {
 
   const totalPages = Math.ceil(filteredPathways.length / ITEMS_PER_PAGE);
 
-  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
     setCurrentPage(1);
   };
 
-  const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
     setCurrentPage(1);
     setSortBy(e.target.value);
   };
@@ -74,19 +75,13 @@ const HomePage = () => {
         <h1 className="page-title">Pathways</h1>
         <div className="page-header__right">
           <div className="search-section">
-            <input
-              type="text"
-              placeholder="Search for pathways"
-              className="search-input"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
+            <Search searchTerm={searchTerm} handleSearch={handleSearch} />
           </div>
           <div className="sort-section">
             <SortDropdown
               sortBy={sortBy}
               sortOrder={sortOrder}
-              handleSortChange={handleSortChange}
+              handleSort={handleSort}
               toggleSortOrder={toggleSortOrder}
             />
           </div>

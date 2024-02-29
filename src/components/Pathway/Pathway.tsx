@@ -1,7 +1,7 @@
-import { IPathway } from "../interfaces/pathway";
-import BookIcon from "../assets/icons/book.svg";
-import RightArrowIcon from "../assets/icons/right-arrow.svg";
-import ClockIcon from "../assets/icons/clock-icon.svg";
+import { IPathway } from "../../interfaces/pathway";
+import BookIcon from "../../assets/icons/book.svg";
+import RightArrowIcon from "../../assets/icons/right-arrow.svg";
+import ClockIcon from "../../assets/icons/clock-icon.svg";
 
 import "./Pathway.css";
 

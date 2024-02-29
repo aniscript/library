@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import useFetchPathways from "../actions/useFetchPathways";
-import Pathways from "../components/Pathways";
-import Pagination from "../components/Pagination";
-import SkeletonPathway from "../components/SkeletonPathway";
+import Pathways from "../components/Pathways/Pathways";
+import Pagination from "../components/Pagination/Pagination";
+import SkeletonPathway from "../components/Skeleton/SkeletonPathway";
 import Layout from "../layout/Layout";
 
 import "./HomePage.css";
-import "../components/SkeletonPathway.css";
-import SortDropdown from "../components/SortDropdown";
+import "../components/Skeleton/SkeletonPathway.css";
+import SortDropdown from "../components/SortDropdown/SortDropdown";
 
 const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sortBy, setSortBy] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [sortBy, setSortBy] = useState<string>("");
+  const [sortOrder, setSortOrder] = useState<string>("asc");
   const ITEMS_PER_PAGE = 8;
 
   const filteredPathways = data
@@ -41,18 +41,19 @@ const HomePage = () => {
         return 0;
       }
     );
+
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
 
   const totalPages = Math.ceil(filteredPathways.length / ITEMS_PER_PAGE);
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
     setCurrentPage(1);
   };
 
-  const handleSortChange = (e: any) => {
+  const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setCurrentPage(1);
     setSortBy(e.target.value);
   };

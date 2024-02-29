@@ -1,5 +1,5 @@
-import { IPathway } from "../interfaces/pathway";
-import Pathway from "./Pathway";
+import { IPathway } from "../../interfaces/pathway";
+import Pathway from "../Pathway/Pathway";
 
 import "./Pathways.css";
 

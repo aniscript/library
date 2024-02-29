@@ -1,6 +1,6 @@
 import "./SortDropdown.css";
-import UpArrowIcon from "../assets/icons/up-arrow.svg";
-import DownArrowIcon from "../assets/icons/down-arrow.svg";
+import UpArrowIcon from "../../assets/icons/up-arrow.svg";
+import DownArrowIcon from "../../assets/icons/down-arrow.svg";
 
 interface SortDropdownProps {
   sortBy: string;

@@ -6,7 +6,7 @@ import { IPathway } from "../../src/interfaces/pathway";
 describe("Pathways", () => {
   it("should render no pathways found when the pathways array is empty.", () => {
     render(<Pathways pathways={[]} />);
-    expect(screen.getByText(/no pathways found/i)).toBeInTheDocument();
+    expect(screen.getByText("No pathways found.")).toBeInTheDocument();
   });
 
   it("should render a list of pathways.", () => {
@@ -35,7 +35,7 @@ describe("Pathways", () => {
       },
     ];
     render(<Pathways pathways={pathways} />);
-    expect(screen.queryByText(/no pathways found/i)).not.toBeInTheDocument();
+    expect(screen.queryByText("No pathways found.")).not.toBeInTheDocument();
     expect(screen.getAllByRole("article").length).toBe(2);
   });
 });

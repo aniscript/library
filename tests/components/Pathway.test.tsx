@@ -44,15 +44,15 @@ describe("Pathway", () => {
   });
   it("should render a pathway with a right arrow icon.", () => {
     render(<Pathway pathway={pathway} />);
-    expect(screen.getByAltText(/right arrow icon/i)).toBeInTheDocument();
+    expect(screen.getByAltText("Right arrow icon")).toBeInTheDocument();
   });
   it("should render a pathway with a book icon.", () => {
     render(<Pathway pathway={pathway} />);
-    expect(screen.getByAltText(/book icon/i)).toBeInTheDocument();
+    expect(screen.getByAltText("Book icon")).toBeInTheDocument();
   });
   it("should render a pathway with a clock icon.", () => {
     render(<Pathway pathway={pathway} />);
-    expect(screen.getByAltText(/clock icon/i)).toBeInTheDocument();
+    expect(screen.getByAltText("Clock icon")).toBeInTheDocument();
   });
   it("should render a pathway with a summative assessment.", () => {
     const pathwayWithSummativeAssessment = {
@@ -61,13 +61,13 @@ describe("Pathway", () => {
     };
     render(<Pathway pathway={pathwayWithSummativeAssessment} />);
     expect(
-      screen.getByText(/includes summative assessment/i)
+      screen.getByText("Includes Summative Assessment")
     ).toBeInTheDocument();
   });
   it("should render a pathway without a summative assessment.", () => {
     render(<Pathway pathway={pathway} />);
     expect(
-      screen.queryByText(/includes summative assessment/i)
+      screen.queryByText("Includes Summative Assessment")
     ).not.toBeInTheDocument();
   });
 });

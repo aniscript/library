@@ -9,6 +9,7 @@ import "./HomePage.css";
 import "../components/Skeleton/SkeletonPathway.css";
 import SortDropdown from "../components/SortDropdown/SortDropdown";
 import Search from "../components/Search/Search";
+import useDebounce from "../utils/useDebounce";
 
 const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
@@ -18,9 +19,11 @@ const HomePage = () => {
   const [sortOrder, setSortOrder] = useState<string>("asc");
   const ITEMS_PER_PAGE = 8;
 
+  const debouncedSearch = useDebounce(searchTerm, 500);
+
   const filteredPathways = data
     .filter((pathway) =>
-      pathway.title.toLowerCase().includes(searchTerm.toLowerCase())
+      pathway.title.toLowerCase().includes(debouncedSearch.toLowerCase())
     )
     .sort(
       (

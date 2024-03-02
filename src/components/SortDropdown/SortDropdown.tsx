@@ -23,7 +23,7 @@ const SortDropdown = ({
         <option value="title">Title</option>
         <option value="duration">Duration</option>
       </select>
-      <div onClick={toggleSortOrder} className="sort-order-toggler">
+      <button onClick={toggleSortOrder} className="sort-order-toggler">
         {sortOrder === "asc" ? (
           <img
             src={DownArrowIcon}
@@ -33,7 +33,7 @@ const SortDropdown = ({
         ) : (
           <img src={UpArrowIcon} alt="up arrow" className="sort-order-icon" />
         )}
-      </div>
+      </button>
     </>
   );
 };

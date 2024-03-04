@@ -19,20 +19,21 @@ const SortDropdown = ({
     <>
       <label htmlFor="sort">Sort by:</label>
       <select id="sort" value={sortBy} onChange={handleSort}>
-        <option value="">None</option>
+        <option value="none">None</option>
         <option value="title">Title</option>
         <option value="duration">Duration</option>
       </select>
-      <button onClick={toggleSortOrder} className="sort-order-toggler">
-        {sortOrder === "asc" ? (
-          <img
-            src={DownArrowIcon}
-            alt="down arrow"
-            className="sort-order-icon"
-          />
-        ) : (
-          <img src={UpArrowIcon} alt="up arrow" className="sort-order-icon" />
-        )}
+
+      <button
+        onClick={toggleSortOrder}
+        className="sort-order-toggler"
+        disabled={sortBy === "none"}
+      >
+        <img
+          src={sortOrder === "asc" ? DownArrowIcon : UpArrowIcon}
+          alt={sortOrder === "asc" ? "down arrow" : "up arrow"}
+          className="sort-order-icon"
+        />
       </button>
     </>
   );

@@ -16,8 +16,8 @@ const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [sortBy, setSortBy] = useState<string>("");
-  const [sortOrder, setSortOrder] = useState<string>("desc");
+  const [sortBy, setSortBy] = useState<string>("none");
+  const [sortOrder, setSortOrder] = useState<string>("asc");
   // Pagination
   const ITEMS_PER_PAGE = 8;
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -36,8 +36,8 @@ const HomePage = () => {
       ) => {
         if (sortBy === "title") {
           return sortOrder === "asc"
-            ? compareString(b.title, a.title)
-            : compareString(a.title, b.title);
+            ? compareString(a.title, b.title)
+            : compareString(b.title, a.title);
         } else if (sortBy === "duration") {
           const durationA = parseInt(a.duration);
           const durationB = parseInt(b.duration);
@@ -61,11 +61,12 @@ const HomePage = () => {
   const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
     setCurrentPage(1);
     setSortBy(e.target.value);
+    setSortOrder("asc");
   };
 
   const toggleSortOrder = () => {
     setCurrentPage(1);
-    setSortOrder(sortOrder === "desc" ? "asc" : "desc");
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
   const handlePageChange = (page: number) => {

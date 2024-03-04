@@ -3,21 +3,25 @@ import useFetchPathways from "../actions/useFetchPathways";
 import Pathways from "../components/Pathways/Pathways";
 import Pagination from "../components/Pagination/Pagination";
 import SkeletonPathway from "../components/Skeleton/SkeletonPathway";
+import SortDropdown from "../components/SortDropdown/SortDropdown";
 import Layout from "../layout/Layout";
+import useDebounce from "../utils/useDebounce";
 
 import "./HomePage.css";
 import "../components/Skeleton/SkeletonPathway.css";
-import SortDropdown from "../components/SortDropdown/SortDropdown";
 import Search from "../components/Search/Search";
-import useDebounce from "../utils/useDebounce";
+import { compareNumber, compareString } from "../utils/sorting";
 
 const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [sortBy, setSortBy] = useState<string>("");
-  const [sortOrder, setSortOrder] = useState<string>("asc");
+  const [sortOrder, setSortOrder] = useState<string>("desc");
+  // Pagination
   const ITEMS_PER_PAGE = 8;
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
 
   const debouncedSearch = useDebounce(searchTerm, 500);
 
@@ -32,22 +36,19 @@ const HomePage = () => {
       ) => {
         if (sortBy === "title") {
           return sortOrder === "asc"
-            ? a.title.localeCompare(b.title)
-            : b.title.localeCompare(a.title);
+            ? compareString(b.title, a.title)
+            : compareString(a.title, b.title);
         } else if (sortBy === "duration") {
           const durationA = parseInt(a.duration);
           const durationB = parseInt(b.duration);
 
           return sortOrder === "asc"
-            ? durationA - durationB
-            : durationB - durationA;
+            ? compareNumber(durationA, durationB)
+            : compareNumber(durationB, durationA);
         }
         return 0;
       }
     );
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
 
   const totalPages = Math.ceil(filteredPathways.length / ITEMS_PER_PAGE);
 
@@ -64,7 +65,7 @@ const HomePage = () => {
 
   const toggleSortOrder = () => {
     setCurrentPage(1);
-    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    setSortOrder(sortOrder === "desc" ? "asc" : "desc");
   };
 
   const handlePageChange = (page: number) => {

@@ -12,7 +12,7 @@ const Pagination = ({
   handlePageChange,
 }: IPaginationProps) => {
   const renderPaginationNumbers = () => {
-    const paginationNumbers = [];
+    const paginationNumbers: React.ReactNode[] = [];
 
     let start = Math.max(1, currentPage - 2);
     let end = Math.min(start + 4, totalPages);

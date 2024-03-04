@@ -5,7 +5,7 @@ It has search and sorting features to help finding the pathways faster.
 
 This project is built using React and Vite.
 
-## Link to domain
+## Link to project
 
 [https://library-aniscript.vercel.app](https://library-aniscript.vercel.app)
 

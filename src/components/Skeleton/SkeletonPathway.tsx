@@ -1,3 +1,5 @@
+import "./SkeletonPathway.css";
+
 const SkeletonPathway = () => {
   return (
     <div className="pathway-card loading">

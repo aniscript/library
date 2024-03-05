@@ -4,13 +4,12 @@ import Pathways from "../components/Pathways/Pathways";
 import Pagination from "../components/Pagination/Pagination";
 import SkeletonPathway from "../components/Skeleton/SkeletonPathway";
 import SortDropdown from "../components/SortDropdown/SortDropdown";
+import Search from "../components/Search/Search";
 import Layout from "../layout/Layout";
 import useDebounce from "../utils/useDebounce";
+import { compareNumber, compareString } from "../utils/sorting";
 
 import "./HomePage.css";
-import "../components/Skeleton/SkeletonPathway.css";
-import Search from "../components/Search/Search";
-import { compareNumber, compareString } from "../utils/sorting";
 
 const HomePage = () => {
   const { isLoading, data, isError, refetch } = useFetchPathways();
